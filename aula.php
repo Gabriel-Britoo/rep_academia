@@ -24,7 +24,7 @@
         $sql_mostrar = "SELECT aula.aula_cod, aluno.aluno_nome AS aluno_nome, aula.aula_tipo, aula.aula_data, instrutor.instrutor_nome AS instrutor_nome
                 FROM aula
                 JOIN aluno ON aula.fk_aluno_cod = aluno.aluno_cod
-                JOIN instrutor ON aula.fk_instrutor_cod = instrutor.instrutor_cod";
+                JOIN instrutor ON aula.fk_instrutor_cod = instrutor.instrutor_cod ORDER BY aluno_nome";
         $mostrar = $conexao->query($sql_mostrar);
         ?>
         <div class='exibir'>
@@ -34,8 +34,6 @@
                 <form action='' method='POST' class='info-aula'>
                     <input type='hidden' name='action' value='edit'>
                     <input type='hidden' name='id_aula' value='".$row['aula_cod']."'>
-
-                                
 
                     <div class='cont-atual'>
                         <p>Aluno: ".$row['aluno_nome']."</p>
@@ -51,10 +49,14 @@
                         <input id='n-inst' name='novo_inst' type='text' value='".$row['instrutor_nome']."' required>
                     </div>
 
-                    <button id='salv' type='submit'>Salvar</button>
-                    <button id='canc' type='button'>Cancelar</button>
-                    <button id='edi' type='button'>Editar</button>
-                    <button id='exc' type='submit' name='action' value='delete'>Excluir</button>
+                    <div class='bot-acoes'>
+                        <button id='salv' type='submit'>Salvar</button>
+                        <button id='canc' type='button'>Cancelar</button>
+                    </div>
+                    <div class='bot-acoes'>
+                        <button id='edi' type='button'>Editar</button>
+                        <button id='exc' type='submit' name='action' value='delete'>Excluir</button>
+                    </div>
                 </form>";
             }
 
@@ -67,7 +69,7 @@
                         $stmt->bind_param("i", $id);
                         
                         if ($stmt->execute()) {
-                            header("Location:aula.php");
+                            echo "<script>location.href = 'aula.php';</script>";
                         } else {
                             echo "Erro ao excluir linha: ".$conexao->error;
                         }

@@ -10,6 +10,7 @@ body{
 
 main{
     height: 90vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,45 +41,26 @@ nav ul li a:hover{
     color: rgb(182, 178, 178);
 }
 
-table {
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 150px;
-    background: white;
-    width: 1000px;
-}
-th, td {
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: left;
-    font-size: 15px;
-    text-align: center;
-}
-
-td{
-    height: 20px;
-    align-items: center;
-}
-
-th {
-    background-color: #31aeba;
-    color: white;
-    border: none;
-}
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
 .exibir {
     background-color: rgba(0, 0, 0, 0);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 70%;
 }
 
 .info-aula{
     background-color: rgb(255, 255, 255);
+    justify-self: center;
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 400px;
+}
+
+.bot-acoes{
+    display: flex;
+    margin-top: 8px;
 }
 
 #edi{
@@ -108,10 +90,27 @@ tr:nth-child(even) {
 
 #salv{
     display: none;
+    background-color:#31aeba;
+    margin-right: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    color: white;
 }
 
 #canc{
     display: none;
+    background-color: rgb(255, 50, 50);
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    color: white;
 }
 
 .edicao{
@@ -123,6 +122,8 @@ tr:nth-child(even) {
 .edicao.mostrar{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
 }
 
 .edicao.esconder{
